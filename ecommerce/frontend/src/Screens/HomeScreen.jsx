@@ -6,6 +6,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
+import Rating from '../components/Rating';
 
 function HomeScreen() {
  const dispatch = useDispatch();
@@ -36,7 +37,9 @@ console.log(products)
                 </div>
                 <div className="product-brand">{product.brand}</div>
                 <div className="product-price">${product.price}</div>
-                <div className="product-rating">{product.rating} Stars ({product.numReviews} Reviews)</div>
+                <div className="product-rating"> 
+                <Rating   rating={product.rating}
+                        numReviews={product.numReviews}  ></Rating></div>
               </div>
             </li>)
         }
